@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>我的小游戏</title>
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/view-design/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/view-design/dist/iview.min.js"></script>
+</head>
+
+<body>
+<div id="app" style="text-align:center;margin-top: 40px">
+  <p style="margin-top: 12px">
+      <i-button @click="myClick(0,0)" v-bind:type="typeValue[matValue[0][0]]" >{{matValue[0][0]}}</i-button>
+      <i-button @click="myClick(0,1)" v-bind:type="typeValue[matValue[0][1]]" >{{matValue[0][1]}}</i-button>
+      <i-button @click="myClick(0,2)" v-bind:type="typeValue[matValue[0][2]]" >{{matValue[0][2]}}</i-button>
+  </p><p style="margin-top: 4px">
+      <i-button @click="myClick(1,0)" v-bind:type="typeValue[matValue[1][0]]" >{{matValue[1][0]}}</i-button>
+      <i-button @click="myClick(1,1)" v-bind:type="typeValue[matValue[1][1]]" >{{matValue[1][1]}}</i-button>
+      <i-button @click="myClick(1,2)" v-bind:type="typeValue[matValue[1][2]]" >{{matValue[1][2]}}</i-button>
+  </p><p style="margin-top: 4px">
+      <i-button @click="myClick(2,0)" v-bind:type="typeValue[matValue[2][0]]" >{{matValue[2][0]}}</i-button>
+      <i-button @click="myClick(2,1)" v-bind:type="typeValue[matValue[2][1]]" >{{matValue[2][1]}}</i-button>
+      <i-button @click="myClick(2,2)" v-bind:type="typeValue[matValue[2][2]]" >{{matValue[2][2]}}</i-button>
+  </p>
+
+</div>
+<script>
+    var myApp = new Vue({
+        el: '#app',
+        data: {
+          typeValue:['','warning'],
+          matValue:[[0,0,0],
+                [0,0,0],
+                [0,0,0]
+             ],
+             jh:0,
+        },
+       
+        methods: {
+
+            myClick: function (a,b) {
+                
+                if(this.matValue[a][b] == 0 && this.jh == 0){
+                this.matValue[a][b] =  1;this.jh=1 }
+                if(this.matValue[a][b] == 0 && this.jh == 1){
+                this.matValue[a][b] =  2;this.jh=0 }
+
+
+                var aa=this.matValue[0][1]
+                var bb=this.matValue[0][2]
+                var cc=this.matValue[1][2]
+                if (aa == bb && bb == cc ){
+                if(aa== 1){
+                  this.matValue[0][2]=2;
+
+                }
+                if(aa== 2){
+                 this.matValue[0][2]=1;
+                }
+              }
+              var aa=this.matValue[0][0]
+                var bb=this.matValue[0][1]
+                var cc=this.matValue[1][0]
+                if (aa == bb && bb == cc ){
+                if(aa== 1){
+                  this.matValue[0][0]=2;
+
+                }
+                if(aa== 2){
+                 this.matValue[0][0]=1;
+                }
+              }
+              var aa=this.matValue[2][0]
+                var bb=this.matValue[1][0]
+                var cc=this.matValue[2][1]
+                if (aa == bb && bb == cc ){
+                if(aa== 1){
+                  this.matValue[2][0]=2;
+
+                }
+                if(aa== 2){
+                 this.matValue[2][0]=1;
+                }
+              }
+                var aa=this.matValue[2][2]
+                var bb=this.matValue[2][1]
+                var cc=this.matValue[1][2]
+                if (aa == bb && bb == cc ){
+                if(aa== 1){
+                  this.matValue[2][2]=2;
+
+                }
+                if(aa== 2){
+                 this.matValue[2][2]=1;
+                }
+              }
+              var aa=this.matValue[0][1]
+                var bb=this.matValue[1][0]
+                var cc=this.matValue[1][2]
+                if (aa == bb && bb == cc ){
+                if(aa== 1){
+                  this.matValue[0][1]=2;
+
+                }
+                if(aa== 2){
+                 this.matValue[0][1]=1;
+                }
+              }
+                this.$forceUpdate();
+                var tempVal = 0;
+                var aa=this.matValue[2][1]
+                var bb=this.matValue[1][0]
+                var cc=this.matValue[1][2]
+                if (aa == bb && bb == cc ){
+                if(aa== 1){
+                  this.matValue[2][1]=2;
+
+                }
+                if(aa== 2){
+                 this.matValue[2][1]=1;
+                }
+              }
+              var aa=this.matValue[1][0]
+                var bb=this.matValue[0][1]
+                var cc=this.matValue[2][1]
+                if (aa == bb && bb == cc ){
+                if(aa== 1){
+                  this.matValue[1][0]=2;
+
+                }
+                if(aa== 2){
+                 this.matValue[1][0]=1;
+                }
+              }
+              var aa=this.matValue[1][2]
+                var bb=this.matValue[0][1]
+                var cc=this.matValue[2][1]
+                if (aa == bb && bb == cc ){
+                if(aa== 1){
+                  this.matValue[1][2]=2;
+
+                }
+                if(aa== 2){
+                 this.matValue[1][2]=1;
+                }
+              }
+                this.$forceUpdate();
+                var tempVal = 0;
+                this.$forceUpdate();
+                var tempVal = 0;
+             //检查
+            for(var i = 0; i < 3; i++){
+              var aa=this.matValue[0][i]
+              var bb=this.matValue[1][i]
+              var cc=this.matValue[2][i]
+              if (aa == bb && bb == cc ){
+                if(aa== 1){
+              this.$Modal.info({
+                        title: "恭喜1成功啦",
+                        content: "1最聪明了 ~ 再接再厉 ！"
+                    });
+                }
+                if(aa== 2){
+              this.$Modal.info({
+                        title: "恭喜2成功啦",
+                        content: "2最聪明了 ~ 再接再厉 ！"
+                    });
+                }
+              }
+
+            }
+            
+            for(var j = 0; j < 3; j++){
+              var aa=this.matValue[j][0]
+              var bb=this.matValue[j][1]
+              var cc=this.matValue[j][2]
+              if (aa == bb && bb == cc ){
+                if(aa== 1){
+              this.$Modal.info({
+                        title: "恭喜1成功啦",
+                        content: "1最聪明了 ~ 再接再厉 ！"
+                    });
+                }
+                if(aa== 2){
+              this.$Modal.info({
+                        title: "恭喜2成功啦",
+                        content: "2最聪明了 ~ 再接再厉 ！"
+                    });
+                }
+              }
+
+            }
+            var aa=this.matValue[0][0]
+              var bb=this.matValue[1][1]
+              var cc=this.matValue[2][2]
+              if (aa == bb && bb == cc ){
+                if(aa== 1){
+              this.$Modal.info({
+                        title: "恭喜1成功啦",
+                        content: "1最聪明了 ~ 再接再厉 ！"
+                    });
+                }
+                if(aa== 2){
+              this.$Modal.info({
+                        title: "恭喜2成功啦",
+                        content: "2最聪明了 ~ 再接再厉 ！"
+                    });
+                }
+              }
+              var aa=this.matValue[0][2]
+              var bb=this.matValue[1][1]
+              var cc=this.matValue[2][0]
+              if (aa == bb && bb == cc ){
+                if(aa== 1){
+              this.$Modal.info({
+                        title: "恭喜1成功啦",
+                        content: "1最聪明了 ~ 再接再厉 ！"
+                    });
+                }
+                if(aa== 2){
+              this.$Modal.info({
+                        title: "恭喜2成功啦",
+                        content: "2最聪明了 ~ 再接再厉 ！"
+                    });
+                }
+              }
+
+
+
+            }
+        }
+    })
+  </script>
+  <p>1代表x，2代表o，请遵守规则。</p>
+</body>
+</html>
